@@ -12,7 +12,7 @@ services:
       - db-data:/var/lib/postgresql/data
       - ./init:/docker-entrypoint-initdb.d # 初期SQLを置くなら
       - ./data:/data                       # CSV置き場
-
+      - ./sql:/sql
   notebook:
     build: ./notebook
     container_name: sql_practice_nb
