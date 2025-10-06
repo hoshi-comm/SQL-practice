@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:15
+    container_name: sql_practice_db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: practice
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d # 初期SQLを置くなら
+      - ./data:/data                       # CSV置き場
+
+  notebook:
+    build: ./notebook
+    container_name: sql_practice_nb
+    depends_on:
+      - db
+    ports:
+      - "127.0.0.1:8888:8888"    # ローカルからだけアクセス可
+    volumes:
+      - ./src:/work              
+      - ./data:/data    #./data(ローカルのリポジトリ直下のdataフォルダ)をコンテナの/dataにマウントする
+    working_dir: /work
+
+volumes:
+  db-data:

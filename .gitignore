@@ -1,0 +1,29 @@
+# data ディレクトリは Git 管理外
+data/
+
+# Jupyter のチェックポイントとかも無視
+.ipynb_checkpoints/
+
+# VSCode の設定ファイル
+.vscode/
+
+# Python のキャッシュ
+__pycache__/
+*.pyc
+
+# Docker 関連
+db-data/          # volume をローカルにマウントしているなら
+*.log             # ログファイル（Postgresやアプリが出すやつ）
+
+# OSごとのゴミファイル
+.DS_Store         # Mac
+
+
+# Python 仮想環境
+.venv/
+env/
+*.egg-info/
+
+# Jupyter Notebook の余計な出力
+*.ipynb_checkpoints/
+*.ipynb_checkpoints/*
