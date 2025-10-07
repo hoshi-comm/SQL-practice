@@ -13,6 +13,7 @@ services:
       - ./init:/docker-entrypoint-initdb.d # 初期SQLを置くなら
       - ./data:/data                       # CSV置き場
       - ./sql:/sql
+      - ./export:/export  
   notebook:
     build: ./notebook
     container_name: sql_practice_nb

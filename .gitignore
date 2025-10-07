@@ -27,3 +27,6 @@ env/
 # Jupyter Notebook の余計な出力
 *.ipynb_checkpoints/
 *.ipynb_checkpoints/*
+
+/data/*
+/export/*
